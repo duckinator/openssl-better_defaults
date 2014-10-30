@@ -1,6 +1,8 @@
-# Openssl::BetterDefaults
+# OpensSSL::BetterDefaults
 
-Overrides Ruby's default OpenSSL parameters to be more secure.
+More secure OpenSSL defaults for Ruby.
+
+A packport of the patches provided in https://www.ruby-lang.org/en/news/2014/10/27/changing-default-settings-of-ext-openssl/
 
 ## Installation
 
@@ -24,7 +26,7 @@ Or install it yourself as:
 require 'openssl/better_defaults'
 ```
 
-Congratulations, you are no longer using insecure SSL/TLS cipher suites.
+Congratulations, you are no longer using insecure SSL/TLS cipher suites, and using the highest TLS version possible.
 
 ## Contributing
 
