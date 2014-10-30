@@ -2,7 +2,7 @@
 
 More secure OpenSSL defaults for Ruby.
 
-A packport of the patches provided in https://www.ruby-lang.org/en/news/2014/10/27/changing-default-settings-of-ext-openssl/
+This is just a gem containing the monkeypatch mentioned in https://www.ruby-lang.org/en/news/2014/10/27/changing-default-settings-of-ext-openssl/
 
 ## Installation
 
