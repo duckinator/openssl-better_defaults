@@ -110,7 +110,7 @@ module OpenSSL
           # No. Go home, OpenSSL API, you're drunk.
           #
           # SSL 2.0 is disabled as recommended by RFC 6176 (see table at top of file).
-          # SSL 3.0 is disabled due to the POODLE vulerability.
+          # SSL 3.0 is disabled due to the POODLE vulnerability.
           opts |= OpenSSL::SSL::OP_NO_SSLv2 if defined?(OpenSSL::SSL::OP_NO_SSLv2)
           opts |= OpenSSL::SSL::OP_NO_SSLv3 if defined?(OpenSSL::SSL::OP_NO_SSLv3)
 
