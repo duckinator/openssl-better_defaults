@@ -1,4 +1,4 @@
-require "openssl/better_defaults/version"
+require 'openssl/better_defaults/version'
 require 'openssl'
 
 # See:
