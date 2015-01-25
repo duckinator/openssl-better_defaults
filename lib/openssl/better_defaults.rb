@@ -2,18 +2,19 @@ require "openssl/better_defaults/version"
 require 'openssl'
 
 # See:
-# * https://www.ruby-lang.org/en/news/2014/10/27/changing-default-settings-of-ext-openssl/
-# * https://en.wikipedia.org/wiki/Transport_Layer_Security
-# * https://wiki.mozilla.org/Security/Server_Side_TLS
+# 1. https://www.ruby-lang.org/en/news/2014/10/27/changing-default-settings-of-ext-openssl/
+# 2. https://en.wikipedia.org/wiki/Transport_Layer_Security
+# 3. https://wiki.mozilla.org/Security/Server_Side_TLS
+# 4. https://www.ssllabs.com/
+# 5. https://www.ssllabs.com/downloads/SSL_TLS_Deployment_Best_Practices.pdf
 
-# Reason          | Disabled features        | Notes
-# ====================================================================
-#                 | SSL 2.0                  | https://tools.ietf.org/html/rfc6176
-# POODLE          | SSL 3.0                  | 
-# BEAST           | ???                      | 
-# LUCKY13         | ???                      | 
-# RC4 weaknesses  | (My understanding is that everything RC4 related should be disabled? But it's not? Hmm.)          | 
-# CRIME           | TLS Compression          | http://arstechnica.com/security/2012/09/crime-hijacks-https-sessions/
+# Reason          | Disabled features               | Notes
+# ==============================================================================
+#                 | SSL 2.0                         | https://tools.ietf.org/html/rfc6176
+# BEST, LUCKY13   | SSL 3.0 Ciphers using CBC mode  |
+# POODLE          | SSL 3.0                         |
+# RC4 weaknesses  | All RC4-based ciphers           |
+# CRIME           | TLS Compression                 | http://arstechnica.com/security/2012/09/crime-hijacks-https-sessions/
 
 # NOTE on CRIME/BREACH:
 #   Disabling TLS compression avoids CRIME at the TLS level. However, both CRIME
@@ -63,6 +64,7 @@ module OpenSSL
           ECDHE-RSA-AES256-SHA384
           ECDHE-ECDSA-AES256-SHA
           ECDHE-RSA-AES256-SHA
+
           DHE-RSA-AES128-SHA256
           DHE-RSA-AES256-SHA256
           DHE-RSA-AES128-SHA
@@ -77,9 +79,20 @@ module OpenSSL
           AES256-SHA256
           AES128-SHA
           AES256-SHA
-          ECDHE-ECDSA-RC4-SHA
-          ECDHE-RSA-RC4-SHA
-          RC4-SHA
+
+
+          !aNULL
+          !eNULL
+          !EXPORT
+          !DES
+          !RC4
+          !MD5
+          !PSK
+          !aECDH
+          !EDH-DSS-DES-CBC3-SHA
+          !EDH-RSA-DES-CBC3-SHA
+          !KRB5-DES-CBC3-SHA
+
         }.join(":"),
         :options => -> {
           # Start with ALL OF THE OPTIONS EVER ENABLED.
