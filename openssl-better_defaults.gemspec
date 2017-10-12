@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Ellen Marie Dash"]
   spec.email         = ["me@duckie.co"]
   spec.summary       = %q{More secure OpenSSL defaults for Ruby.}
-  spec.homepage      = "https://gitlab.com/duckinator/openssl-better_defaults"
+  spec.homepage      = "https://github.com/duckinator/openssl-better_defaults"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
