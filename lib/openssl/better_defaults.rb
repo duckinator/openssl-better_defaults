@@ -1,36 +1,45 @@
 require 'openssl/better_defaults/version'
 require 'openssl'
 
-# See:
-# 1. https://www.ruby-lang.org/en/news/2014/10/27/changing-default-settings-of-ext-openssl/
+# = Changes made by openssl/better_defaults
+#
+# == Miscellaneous resources
+#
+# 1. https://www.ruby-lang.org/en/news/2014/10/27/changing-default-settings-of-ext-openssl
 # 2. https://en.wikipedia.org/wiki/Transport_Layer_Security
 # 3. https://wiki.mozilla.org/Security/Server_Side_TLS
-# 4. https://www.ssllabs.com/
-# 5. https://www.ssllabs.com/downloads/SSL_TLS_Deployment_Best_Practices.pdf
-
-# Reason          | Disabled features               | Notes
-# ==============================================================================
-#                 | SSL 2.0                         | https://tools.ietf.org/html/rfc6176
-# BEST, LUCKY13   | SSL 3.0 Ciphers using CBC mode  |
-# POODLE          | SSL 3.0                         |
-# RC4 weaknesses  | All RC4-based ciphers           |
-# CRIME           | TLS Compression                 | http://arstechnica.com/security/2012/09/crime-hijacks-https-sessions/
-
-# NOTE on CRIME/BREACH:
-#   Disabling TLS compression avoids CRIME at the TLS level. However, both CRIME
-#   and BREACH can be used against HTTP compression ­-- which is entirely out
-#   of the scope of this library.
-#   http://en.wikipedia.org/wiki/CRIME
-
-# NOTE on SSL versions:
-#   Instead of being able to specify a minimum SSL version, you can only either
-#   specify an individual version, or everything.
+# 4. https://ssllabs.com
+# 5. https://ssllabs.com/downloads/SSL_TLS_Deployment_Best_Practices.pdf
 #
-#   Individual options for disabling SSL 2.0 and SSL 3.0 are also available.
+# == Rationale for disabling features
 #
-#   Thus, to enable TLS 1.0+ only, you have to:
-#     1. Enable SSL 2.0+ (set ssl_version to "SSLv23"), then
-#     2. disable SSL 2.0 (OP_NO_SSLv2) and SSL 3.0 (OP_NO_SSLv2).
+#    Reason          | Disabled features               | Notes
+#    ==============================================================================
+#                    | SSL 2.0                         | https://tools.ietf.org/html/rfc6176
+#    BEST, LUCKY13   | SSL 3.0 Ciphers using CBC mode  |
+#    POODLE          | SSL 3.0                         |
+#    RC4 weaknesses  | All RC4-based ciphers           |
+#    CRIME           | TLS Compression                 | http://arstechnica.com/security/2012/09/crime-hijacks-https-sessions/
+#
+# === Note on CRIME/BREACH
+#
+# Disabling TLS compression avoids CRIME at the TLS level. However, both CRIME
+# and BREACH can be used against HTTP compression­-- which is entirely out
+# of the scope of this library.
+#
+# See also, http://en.wikipedia.org/wiki/CRIME
+#
+# === Note on SSL/TLS versions
+#
+# Instead of being able to specify a minimum SSL version, OpenSSL only lets you
+# either enable an individual version, or enable everything.
+#
+# Individual options for disabling SSL 2.0 and SSL 3.0 are also available.
+#
+# Thus, to enable TLS 1.0+ only, you have to:
+#
+# 1. Enable SSL 2.0+ (set ssl_version to "SSLv23"), then
+# 2. disable SSL 2.0 (OP_NO_SSLv2) and SSL 3.0 (OP_NO_SSLv2).
 
 module OpenSSL
   module SSL
