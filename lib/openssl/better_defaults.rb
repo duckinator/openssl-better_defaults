@@ -55,7 +55,7 @@ module OpenSSL
         # certificate.
         :verify_mode => OpenSSL::SSL::VERIFY_PEER,
 
-        # TODO: Review cipher list.
+        # TODO: Review cipher list. I copied ruby-lang.org's monkeypatch verbatim.
         :ciphers => %w{
           ECDHE-ECDSA-AES128-GCM-SHA256
           ECDHE-RSA-AES128-GCM-SHA256
