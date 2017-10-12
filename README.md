@@ -4,6 +4,9 @@ More secure OpenSSL defaults for Ruby.
 
 This is just a gem containing the monkeypatch mentioned in https://www.ruby-lang.org/en/news/2014/10/27/changing-default-settings-of-ext-openssl/
 
+The [source code](https://github.com/duckinator/openssl-better_defaults/blob/main/lib/openssl/better_defaults.rb)
+has a fairly detailed explanation of the reasoning behind the various changes.
+
 ## Installation
 
 Add this line to your application's Gemfile:
