@@ -6,10 +6,9 @@ require 'openssl/better_defaults/version'
 Gem::Specification.new do |spec|
   spec.name          = "openssl-better_defaults"
   spec.version       = Openssl::BetterDefaults::VERSION
-  spec.authors       = ["Marie Markwell"]
-  spec.email         = ["me@marie.so"]
+  spec.authors       = ["Ellen Marie Dash"]
+  spec.email         = ["me@duckie.co"]
   spec.summary       = %q{More secure OpenSSL defaults for Ruby.}
-  spec.description   = spec.description
   spec.homepage      = "https://gitlab.com/duckinator/openssl-better_defaults"
   spec.license       = "MIT"
 

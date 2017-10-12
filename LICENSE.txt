@@ -1,4 +1,4 @@
-Copyright (c) 2014 Marie Markwell <me@marie.so>
+Copyright (c) 2014 Ellen Marie Dash <me@duckie.co>
 
 MIT License
 
