@@ -14,7 +14,7 @@ require 'openssl'
 # == Rationale for disabling features
 #
 #    Reason          | Disabled features               | Notes
-#    ==============================================================================
+#    ===========================================================================
 #                    | SSL 2.0                         | https://tools.ietf.org/html/rfc6176
 #    BEST, LUCKY13   | SSL 3.0 Ciphers using CBC mode  |
 #    POODLE          | SSL 3.0                         |
@@ -24,7 +24,7 @@ require 'openssl'
 # === Note on CRIME/BREACH
 #
 # Disabling TLS compression avoids CRIME at the TLS level. However, both CRIME
-# and BREACH can be used against HTTP compression­-- which is entirely out
+# and BREACH can be used against HTTP compression -- which is entirely out
 # of the scope of this library.
 #
 # See also, http://en.wikipedia.org/wiki/CRIME
@@ -49,7 +49,7 @@ module OpenSSL
       DEFAULT_PARAMS = {
         # Enable SSL 2.0+ and TLS 1.0+. SSL 2.0 and SSL 3.0 are disabled later on.
         # See the above NOTE on SSL versions.
-        :ssl_version => "SSLv23",
+        :ssl_version => 'SSLv23',
 
         # Verify the server's certificate against the certificate authority's
         # certificate.
@@ -102,7 +102,7 @@ module OpenSSL
           !EDH-RSA-DES-CBC3-SHA
           !KRB5-DES-CBC3-SHA
 
-        }.join(":"),
+        }.join(':'),
         :options => -> {
           # Start with ALL OF THE OPTIONS EVER ENABLED.
           opts = OpenSSL::SSL::OP_ALL
