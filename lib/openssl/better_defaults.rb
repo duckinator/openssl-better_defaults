@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'openssl/better_defaults/version'
 require 'openssl'
 
@@ -89,7 +91,6 @@ module OpenSSL
           AES128-SHA
           AES256-SHA
 
-
           !aNULL
           !eNULL
           !EXPORT
@@ -101,7 +102,6 @@ module OpenSSL
           !EDH-DSS-DES-CBC3-SHA
           !EDH-RSA-DES-CBC3-SHA
           !KRB5-DES-CBC3-SHA
-
         }.join(':'),
         :options => -> {
           # Start with ALL OF THE OPTIONS EVER ENABLED.
@@ -125,8 +125,7 @@ module OpenSSL
 
           opts
         }.call
-      }
+      }.freeze
     end
   end
 end
-
