@@ -1,4 +1,4 @@
-Copyright (c) 2014 Ellen Marie Dash <me@duckie.co>
+Copyright (c) 2014-2020 Ellen Marie Dash <me@duckie.co>
 
 MIT License
 
