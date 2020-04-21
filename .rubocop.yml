@@ -1,0 +1,13 @@
+inherit_from: rubocop.relaxed.yml
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+#Style/Encoding:
+#  Enabled: false
+
+Layout/LineLength:
+  Max: 99
